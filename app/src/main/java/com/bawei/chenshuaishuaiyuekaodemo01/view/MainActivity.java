@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity {
             }
             @Override
             public void onPageSelected(int position) {
-                switch (list.size()){
+                switch (position%list.size()){
                     case 0:
                         radioGroup.check(R.id.btn_1);
                         break;

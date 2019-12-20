@@ -63,11 +63,39 @@ public class FlowLayout extends LinearLayout {
     public void addView(List<String> tags){
         if (tags!=null&&tags.size()>0){
             for (String tag : tags) {
-                TextView textView = new TextView(getContext());
+                final TextView textView = new TextView(getContext());
                 textView.setText(tag);
                 addView(textView);
+                textView.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        clickflow.clc(textView.getText().toString());
+                    }
+                });
+
 
             }
         }
     }
+    public void addd(String ed){
+        final TextView tt=new TextView(getContext());
+        tt.setText(ed);
+        addView(tt);
+        tt.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickflow.clc(tt.getText().toString());
+            }
+        });
+    }
+    private Clickflow clickflow;
+
+    public void setClickflow(Clickflow clickflow) {
+        this.clickflow = clickflow;
+    }
+
+    public interface Clickflow{
+        void clc(String keyword);
+    }
+
 }

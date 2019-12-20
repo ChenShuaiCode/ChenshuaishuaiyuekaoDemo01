@@ -1,13 +1,16 @@
 package com.bawei.chenshuaishuaiyuekaodemo01.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bawei.chenshuaishuaiyuekaodemo01.R;
 import com.bawei.chenshuaishuaiyuekaodemo01.model.entity.GridEntity;
+import com.bawei.chenshuaishuaiyuekaodemo01.view.SecendActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -35,6 +38,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, list.get(position).commodityName, Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(context, SecendActivity.class));
+            }
+        });
+
+
         GridEntity.ResultBean resultBean = list.get(position);
         final String commodityName = resultBean.commodityName;
         final String price = resultBean.price;
@@ -52,6 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public int getItemCount() {
         return list.size();
     }
+
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView iv;

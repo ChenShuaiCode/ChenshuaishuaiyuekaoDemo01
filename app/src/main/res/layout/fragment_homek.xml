@@ -27,8 +27,7 @@
         </LinearLayout>
         <com.bawei.chenshuaishuaiyuekaodemo01.view.wedgit.FlowLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:id="@+id/flo"></com.bawei.chenshuaishuaiyuekaodemo01.view.wedgit.FlowLayout>
 
 
